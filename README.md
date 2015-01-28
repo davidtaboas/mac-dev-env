@@ -73,7 +73,8 @@ Ahora ejecutamos:
 ## Shell setup - Fish
 
 Uso [Fish](http://fishshell.com/) con su extensión [Oh My Fish](https://github.com/bpinto/oh-my-fish)
-  `curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish`
+
+`curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish`
   
 Para cambiar a fish en la shell:
 
