@@ -8,7 +8,7 @@
 
   
 
-Creamos un archivo llamado "Brewfile":
+Creamos un archivo llamado "[Brewfile](https://github.com/davidtaboas/mac-dev-env/blob/master/Brewfile)":
 ```
 tap josegonzalez/php
 tap homebrew/dupes
@@ -38,6 +38,7 @@ cask install flux
 
 cask install virtualbox
 cask install vagrant
+cask install boot2docker
 
 cask install sublime-text-3
 cask install google-chrome
@@ -59,7 +60,8 @@ cask install github
 cask install transmit
 ```
 Ahora ejecutamos:
-  brew bundle Brewfile
+
+`brew bundle Brewfile`
   
 ## XCode
 
@@ -71,15 +73,21 @@ Ahora ejecutamos:
 ## Shell setup - Fish
 
 Uso [Fish](http://fishshell.com/) con su extensión [Oh My Fish](https://github.com/bpinto/oh-my-fish)
-  curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+  `curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish`
   
 Para cambiar a fish en la shell:
-  grep -q '^/usr/local/bin/fish$' /etc/shells; or echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
-  
+
+```
+grep -q '^/usr/local/bin/fish$' /etc/shells; or echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+```
+
 Este es mi archivo de configuración de fish, al que accedo con:
-  subl ~/.config/fish/config.fish
   
+  `subl ~/.config/fish/config.fish`
+  
+Tengo esta configuración, con algunos plugins activos:
+
   ```
   # Path to your oh-my-fish.
   set fish_path $HOME/.oh-my-fish
@@ -117,28 +125,38 @@ Para ciertos usos, uso [Docker](https://docs.docker.com/installation/mac/).
 
 ### postgresql
 
-  ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
-  
-  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-  
+```
+ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  ```
 
 ### ruby + rails
-  echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
-  source ~/.bash_profile
-  rbenv install 2.1.3
-  rbenv global 2.1.3
-  gem install rails
-  rbenv rehash
+
+Instalamos la versión de ruby e indicamos que se use de manera global. Instalamos rails.
+```
+rbenv install 2.1.3
+rbenv global 2.1.3
+gem install rails
+rbenv rehash
+```
+
 
 ### bower
-  npm install bower
+
+```
+npm install bower
+```
 
 ### pow + powder
 
-  curl get.pow.cx | sh
-  gem install powder
-  
-  powder up/down
+Instalamos pow y powder para que el manejo sea más sencillo.
+```
+curl get.pow.cx | sh
+gem install powder
+```
+Podemos levantar o apagar pow con el siguiente comando:
+
+`powder up/down`
   
 ## Software
 
@@ -148,8 +166,8 @@ Para ciertos usos, uso [Docker](https://docs.docker.com/installation/mac/).
   
 Utilizo las siguientes extensiones:
   
-  * [Stylish](http://sobolev.us/stylish/) which allows me to install two styles that brings back the 
-    * [card numbers](https://userstyles.org/styles/79880/trello-card-ids-small)
-  * [YSlow]()
-  * [Toggl]()
-
+  * [Stylish](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe): aplicar estilos a páginas web. Yo uso un [tema simplificado y limpio para Trello](https://userstyles.org/styles/80236/trello-theme-gray).
+  * [YSlow](https://chrome.google.com/webstore/detail/yslow/ninejjcohidippngpapiilnmkgllmakh): análisis de webs
+  * [Toggl](https://chrome.google.com/webstore/detail/toggl-button/oejgccbfbmkkpaidnkphaiaecficdnfn)
+  * [DevTools Theme: Zero Dark Matrix](https://chrome.google.com/webstore/detail/devtools-theme-zero-dark/bomhdjeadceaggdgfoefmpeafkjhegbo): activar experiments en chrome://flags y permitir temas personalizados
+  * [StayFocusd](https://chrome.google.com/webstore/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji): para mantener un control sobre las páginas web a las que entrar, horarios, etc.
